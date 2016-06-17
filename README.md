@@ -10,7 +10,7 @@ When running in a web browser go to http://local.dev/ or http://127.0.0.1/ you'l
 
 Tweak domains, and db usernames and passwords as required in the Docker files and files inclued from the build/ sub directories.
 
-Containers created are prefixed with the parent domain name.
+Containers created are prefixed with the parent directory name eg. LEMP_docker becomes lempdocker_{contanerName}_1
 
 e.g.
 
