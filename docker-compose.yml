@@ -1,0 +1,48 @@
+# build and run the docker-compose version 2 way
+version: '2'
+services:
+
+  mysql:
+    # image: mysql:5.5
+    image: mariadb:latest
+    ports:
+      - "3306:3306"
+    environment:
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_DATABASE: devdb
+     MYSQL_USER: dev
+     MYSQL_PASSWORD: devdb
+
+  php:
+    build: ./docker/php7-fpm
+    image: php7-fpm:latest
+    environment:
+      ENVIRONMENT: development
+    depends_on:
+      - mysql
+    links:
+      - mysql:db
+    volumes:
+      - "./:/var/www/vhosts/site"
+    dns:
+      - 8.8.8.8
+
+  web:
+    build: ./docker/nginx
+    image: web:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    dns:
+      - 8.8.8.8
+    environment:
+      ENVIRONMENT: development
+    depends_on:
+      - mysql
+      - php
+    links:
+      - php:php
+    volumes:
+      - "./:/var/www/vhosts/site"
+
+
