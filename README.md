@@ -13,7 +13,7 @@ This first time builds then starts up a webserver instance on port 80 (HTTP)
 and SSL on port 443 (HTTPS) using a self signed certificate, Mariadb and php-fpm v7 and
 leaves the terminal window tailing the logs from all instances.
 
-When your done CTRL-C closes it al down gracefully.
+When your done CTRL-C closes it all down gracefully.
 
 Second time on the command just restarts the containers if nothing changed in the Docker files
 for the mages, if something has changed it will rebuild the images and containers.
