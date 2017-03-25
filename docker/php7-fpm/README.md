@@ -1,9 +1,6 @@
 # docker php7 fpm redis
 
-    This container can be found pre-built on docker hub as freshsauce/cf-php7-fpm-redis
-    https://registry.hub.docker.com/u/freshsauce/cf-php7-fpm-redis/
-
-    It's designed to run php-fpm for a nginx container based on image freshsauce/nginx
+    Docker container to run php-fpm as a partner to a nginx container
 
   - Based on official php7 fpm build
   - exposes port 9000
@@ -20,7 +17,7 @@
     - pdo
     - pdo_mysql
     - mysql
-    - redis client via pecl
+    - redis client via pecl (not installed by default)
     - xdebug
   - installs composer
   - installs phpunit
@@ -28,19 +25,6 @@
   - expects a php-fpm instance to be running before it's started with an alais of php on port 9000
   - sets the default timezone to Europe/London via build/php.ini which is added to the container
 
-## Pull or build
+## Build
 
-    docker pull freshsauce/cf-php7-fpm-redis
-
-  Or build under your own username on docker
-
-    docker build -t username/cf-php7-fpm-redis .
-
-## Run up with
-
-    docker run --name php -v /host/web/html:/var/www/vhosts/site/public_html \
-      --link redis:redis --link mysql:db -d username/cf-php7-fpm-redis
-
-  - links to a mysql container aliased as db
-  - links to a redis container aliased as redis
-  - mounts host directory /host/web/html as /var/www/vhosts/site/public_html in the container
+  Use docker-compose in parent directory to launch
