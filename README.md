@@ -37,7 +37,7 @@ e.g.
 - lempdocker_mysql_1
 
 
-## quick docker-compose commands
+## quick start docker-compose command guide
 
 docker-compose when run applies it's actions to the containers as defined in the docker-compose.yml
 file of the current directory
@@ -48,6 +48,17 @@ file of the current directory
     docker-compose stop           # Stop containers
     docker-compose logs           # show logs from all containers
     docker-compose logs -f        # Tail logs from all containers CTRL-C to stop tailing
+
+## quick start docker command guide
+
+    docker ps                             # show all running containers
+    docker ps -a                          # show all containers whether running or not
+    docker exec -ti {container_name} bash # open a bash shell in a running container
+    docker images                         # show all images (containers are an image with configuration)
+    docker rm {container_name_or_id}      # remove a container
+    docker rmi {image_id}                 # remove an image
+    docker rm $(docker ps -a -q)          # remove all containers
+    docker rmi $(docker images -q)        # remove all unused images, it'll error on the used one, leaving them in place
     
 ## Local file layout
 
