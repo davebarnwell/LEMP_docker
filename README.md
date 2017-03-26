@@ -66,4 +66,4 @@ file of the current directory
     - docker-compose.yml  defines the container setup
     - /docker             The individual container build scripts
     - /public             website root directory for public assets etc
-    - **/other_dirs**     Other directories you want your app to have access to, e.g. the code for
+    - **/other_dirs**     Other directories you want your app to have access to, e.g. containing the application controllers models etc
