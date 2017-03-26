@@ -4,10 +4,7 @@
 
   - Based on official php7 fpm build
   - exposes port 9000
-  - volume /var/www web root is one of
-    - /var/www/vhosts/site/public_html      (domain cf.dev)
-    - /var/www/vhosts/api/public_html       (domain api.cf.dev)
-    - /var/www/vhosts/payments/public_html  (domain payment.cf.dev)
+  - exports volume /var/www/vhosts to match the nginx container
   - installs pear
   - installs PHP with
     - gd
